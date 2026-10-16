@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Grace Darga — Ingénieure Cybersécurité & GRC</title>
+<style>
+:root{--bg:#f4f7fb;--card:#fff;--border:#d6dfeb;--fg:#0a1929;--muted:#52657c;--accent:#0e7490;--soft:#e0f2f7;--ok:#047857;--wip:#b45309;--term:#07111f;--termfg:#cfe3f5;--tgreen:#34d399;--tcyan:#22d3ee;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0a1929;--card:#0f2238;--border:#1c3552;--fg:#e6eef8;--muted:#8aa0b8;--accent:#22d3ee;--soft:#12304a;--ok:#34d399;--wip:#fbbf24;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0a1929;--card:#0f2238;--border:#1c3552;--fg:#e6eef8;--muted:#8aa0b8;--accent:#22d3ee;--soft:#12304a;--ok:#34d399;--wip:#fbbf24;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.6}
+a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+.mono{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace}
+.wrap{max-width:1000px;margin:0 auto;padding:0 20px}
+nav{display:flex;align-items:center;gap:20px;flex-wrap:wrap;padding:18px 0;font-size:.9rem}
+nav .logo{width:30px;height:30px;border-radius:8px;background:var(--accent);color:var(--bg);display:flex;align-items:center;justify-content:center;font-weight:800}
+nav a{color:var(--muted)}nav a:hover{color:var(--accent);text-decoration:none}
+.hero{display:grid;grid-template-columns:1.15fr 1fr;gap:32px;align-items:center;padding:34px 0 40px}
+@media(max-width:820px){.hero{grid-template-columns:1fr}}
+.kicker{color:var(--accent);font-size:.85rem;margin:0 0 8px}
+h1{margin:0 0 6px;font-size:clamp(2rem,5vw,3rem);line-height:1.1}
+.sub{color:var(--accent);font-weight:600;margin:0 0 14px;font-size:.95rem}
+h2.tag-h{margin:0 0 10px;font-size:clamp(1.15rem,2.6vw,1.45rem);line-height:1.35}
+.lead{color:var(--muted);margin:0 0 18px;max-width:58ch}
+.btns{display:flex;gap:10px;flex-wrap:wrap}
+.btn{padding:9px 16px;border-radius:8px;border:1px solid var(--accent);font-weight:600;font-size:.9rem}
+.btn.pri{background:var(--accent);color:var(--bg)}.btn:hover{text-decoration:none;opacity:.88}
+.term{background:var(--term);border:1px solid var(--border);border-radius:12px;overflow:hidden;font-size:.84rem;color:var(--termfg)}
+.term .bar{display:flex;gap:6px;align-items:center;padding:9px 12px;border-bottom:1px solid #1c3552;color:#8aa0b8;font-size:.75rem}
+.dot{width:9px;height:9px;border-radius:50%;background:#1c3552;display:inline-block}
+.term .body{padding:14px 16px}
+.term p{margin:0 0 4px}.g{color:var(--tgreen)}.c{color:var(--tcyan)}.r{display:flex;justify-content:space-between;gap:10px}
+section{padding:34px 0;border-top:1px solid var(--border)}
+.lbl{color:var(--accent);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;margin:0 0 4px}
+h2{font-size:1.5rem;margin:0 0 6px}.intro{color:var(--muted);margin:0 0 20px;max-width:64ch}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(285px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px;display:flex;flex-direction:column}
+.card h3{margin:8px 0 6px;font-size:1.02rem}.card p{margin:0 0 12px;color:var(--muted);font-size:.92rem;flex:1}
+.st{align-self:flex-start;font-size:.72rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:2px 9px;border-radius:999px;border:1px solid currentColor}
+.st.done{color:var(--ok)}.st.wip{color:var(--wip)}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{background:var(--soft);color:var(--accent);border-radius:6px;padding:2px 9px;font-size:.76rem;font-weight:600}
+.dash{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.row{display:flex;justify-content:space-between;gap:12px;padding:7px 0;border-bottom:1px solid var(--border);font-size:.9rem}
+.row:last-child{border:0}.row span:first-child{color:var(--muted)}.row span:last-child{text-align:right;font-weight:600}
+.spec{margin:0;padding:0;list-style:none;font-size:.92rem}.spec li{padding:5px 0}.spec b{color:var(--accent);margin-right:8px}
+.exp{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:10px;padding:16px 18px;margin:0 0 14px}
+.exp .top{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.exp h3{margin:0;font-size:1.02rem}.exp .when{color:var(--muted);font-size:.82rem}
+.exp p{margin:6px 0 10px;color:var(--muted);font-size:.92rem}
+.contact{max-width:560px}
+footer{padding:24px 0 40px;color:var(--muted);font-size:.85rem;border-top:1px solid var(--border)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="mono"><span class="logo">G</span><a href="#projets">Projets</a><a href="#formation">Formation</a><a href="#experience">Expérience</a><a href="#contact">Contact</a></nav>
+
+<header class="hero" id="home">
+<div>
+<p class="kicker mono">&gt;_ @grace</p>
+<h1>Grace Darga</h1>
+<p class="sub mono">Ingénieure Cybersécurité | GRC • Pentest • Réseaux • SOC</p>
+<h2 class="tag-h">Sécuriser les systèmes. Maîtriser les risques. Garantir la conformité.</h2>
+<p class="lead">Élève ingénieure en dernière année (EMG Rabat), orientée gouvernance, risque et conformité, avec une pratique technique des tests d’intrusion, des réseaux sécurisés et de la détection d’anomalies.</p>
+<div class="btns"><a class="btn pri" href="#projets">Voir mes projets →</a><a class="btn" href="#contact">Me contacter</a><a class="btn" href="https://github.com/dargagrace">GitHub</a></div>
+</div>
+<div class="term mono" aria-label="Terminal décoratif">
+<div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span>grace@security:~</span></div>
+<div class="body">
+<p><span class="g">grace@security:~$</span> whoami</p>
+<p>Ingénieure Cybersécurité</p><p>GRC / Pentest / Réseaux</p><br>
+<p><span class="g">grace@security:~$</span> security-status</p>
+<div class="r"><span>pentest_web</span><span class="g">PRATIQUÉ</span></div>
+<div class="r"><span>reseaux_securises</span><span class="g">PRATIQUÉ</span></div>
+<div class="r"><span>grc_iso27001</span><span class="c">EN COURS</span></div>
+<div class="r"><span>soc_blue_team</span><span class="c">EN COURS</span></div><br>
+<p><span class="g">grace@security:~$</span> <span class="c">disponible : stage GRC</span></p>
+</div></div>
+</header>
+
+<section id="projets">
+<p class="lbl mono">Projets</p><h2>Mes projets</h2>
+<p class="intro">Projets de cybersécurité, d’infrastructure, de data et de développement, documentés sur GitHub.</p>
+<div class="grid">
+<article class="card"><span class="st done">Terminé</span><h3>Réseau d’entreprise sécurisé</h3><p>Segmentation VLAN, ACL avec exception ciblée, NAT/PAT et VPN IPsec site-à-site, validés par des preuves (tunnel actif, paquets chiffrés).</p><div class="tags"><span class="tag">Cisco</span><span class="tag">VPN IPsec</span><span class="tag">ACL</span><span class="tag">NAT</span></div></article>
+<article class="card"><span class="st done">Terminé</span><h3>Détection d’anomalies par logs</h3><p>Script Python détectant le brute force et le credential spraying dans des logs SSH, avec fenêtre glissante et seuils paramétrables.</p><div class="tags"><span class="tag">Python</span><span class="tag">SOC</span><span class="tag">Analyse de logs</span></div></article>
+<article class="card"><span class="st wip">En cours</span><h3>Formation TryHackMe</h3><p>22 rooms complétées (réseau, Linux, introduction offensive/défensive, rôle d’analyste SOC), classement Top 25 %.</p><div class="tags"><span class="tag">Blue Team</span><span class="tag">CTF</span><span class="tag">SOC Level 1</span></div></article>
+<article class="card"><span class="st done">Terminé</span><h3>MLOps — détection de fraude</h3><p>Pipeline complet : prétraitement SMOTE, entraînement XGBoost, suivi MLflow, API FastAPI, Docker et CI/CD GitHub Actions.</p><div class="tags"><span class="tag">XGBoost</span><span class="tag">FastAPI</span><span class="tag">Docker</span><span class="tag">MLflow</span></div></article>
+<article class="card"><span class="st done">Terminé</span><h3>DataOps e-commerce</h3><p>Pipeline dbt + DuckDB en architecture Medallion, avec 49 tests de qualité automatisés.</p><div class="tags"><span class="tag">dbt</span><span class="tag">DuckDB</span><span class="tag">SQL</span></div></article>
+<article class="card"><span class="st done">Terminé</span><h3>Plateforme de covoiturage</h3><p>Application web Java EE en couches (DAO, service, servlet), authentification BCrypt, filtres de sécurité et API REST sur base Oracle.</p><div class="tags"><span class="tag">Java EE</span><span class="tag">JPA</span><span class="tag">Oracle</span><span class="tag">REST</span></div></article>
+<article class="card"><span class="st done">Terminé</span><h3>ShopSmart</h3><p>Application mobile de comparaison de prix : authentification Firebase, catalogue, carte des magasins, liste de courses.</p><div class="tags"><span class="tag">Flutter</span><span class="tag">Firebase</span><span class="tag">Géolocalisation</span></div></article>
+</div>
+<p style="margin-top:18px"><a class="mono" href="https://github.com/dargagrace">Explorer tous les projets sur GitHub →</a></p>
+</section>
+
+<section id="formation">
+<p class="lbl mono">Profil académique</p><h2>Formation & compétences</h2>
+<div class="dash">
+<div class="card"><h3 class="mono" style="margin-top:0">Informations académiques</h3>
+<div class="row"><span>Diplôme</span><span>Cycle ingénieur</span></div>
+<div class="row"><span>Programme</span><span>Génie Informatique</span></div>
+<div class="row"><span>Établissement</span><span>EMG — Rabat</span></div>
+<div class="row"><span>Période</span><span>2024 — en cours</span></div>
+<div class="row"><span>Spécialité</span><span>Cybersécurité & GRC</span></div></div>
+<div class="card"><h3 class="mono" style="margin-top:0">Spécialisations</h3><ul class="spec">
+<li><b class="mono">01</b>Gouvernance, risque et conformité (ISO/IEC 27001, RGPD)</li>
+<li><b class="mono">02</b>Tests d’intrusion web (Burp Suite, Nmap, OWASP)</li>
+<li><b class="mono">03</b>Réseaux et infrastructure sécurisés (Cisco)</li>
+<li><b class="mono">04</b>SOC et détection d’incidents (en cours)</li></ul></div>
+<div class="card"><h3 class="mono" style="margin-top:0">Formations complémentaires</h3>
+<div class="row"><span>Cisco (8 modules)</span><span>Terminé</span></div>
+<div class="row"><span>Cybercriminalité — UNODC</span><span>Terminé</span></div>
+<div class="row"><span>ISO/IEC 27001</span><span>En cours</span></div>
+<div class="row"><span>ISC2 CC</span><span>En cours</span></div></div>
+</div>
+</section>
+
+<section id="experience">
+<p class="lbl mono">Expérience</p><h2>Expérience professionnelle</h2>
+<div class="exp"><div class="top"><h3>Stage cybersécurité — tests d’intrusion · IFGICT</h3><span class="when mono">Juil. 2026 – Sept. 2026</span></div><p>Pentests de deux sites web dans le cadre d’une mission confidentielle : utilisation de Burp Suite et de Nmap, application de la méthodologie OWASP, analyse de vulnérabilités applicatives.</p><div class="tags"><span class="tag">tool:Burp Suite</span><span class="tag">tool:Nmap</span><span class="tag">capability:Pentest web</span><span class="tag">capability:OWASP</span></div></div>
+<div class="exp"><div class="top"><h3>Stage Data Science · Thot Insights</h3><span class="when mono">2025</span></div><p>Identification des sources de données, collecte et traitement des données.</p><div class="tags"><span class="tag">capability:Data</span><span class="tag">tool:Python</span></div></div>
+<div class="exp"><div class="top"><h3>Stage Technicienne Réseaux & Sécurité · Groupe OCP</h3><span class="when mono">2024</span></div><p>Configuration d’OSPF, SSH, DHCP et DNS, segmentation VLSM, câblage Ethernet et fibre optique.</p><div class="tags"><span class="tag">tool:Cisco</span><span class="tag">capability:Réseaux</span><span class="tag">capability:Sécurité réseau</span></div></div>
+</section>
+
+<section id="contact">
+<p class="lbl mono">Contact</p><h2>Travaillons ensemble</h2>
+<p class="intro">À la recherche d’un stage en tant que consultante GRC. N’hésitez pas à me contacter.</p>
+<div class="term mono contact"><div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span>contact@portfolio:~</span></div><div class="body">
+<p><span class="g">visitor@portfolio:~$</span> ./contact --available</p><p class="c">Disponible pour un stage GRC</p><br>
+<p><span class="g">visitor@portfolio:~$</span> ./connect --channels</p>
+<p>E-mail &nbsp;&nbsp;&nbsp;&nbsp;<a href="mailto:dargagrace1@gmail.com">dargagrace1@gmail.com</a></p>
+<p>GitHub &nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/dargagrace">@dargagrace</a></p>
+<p>TryHackMe <a href="https://tryhackme.com/p/dargagrace1">@dargagrace1</a></p></div></div>
+</section>
+</div>
+<footer><div class="wrap mono">© 2026 Grace Darga — Rabat, Maroc</div></footer>
+</body>
+</html>
